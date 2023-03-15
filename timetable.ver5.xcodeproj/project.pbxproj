@@ -23,13 +23,13 @@
 		C85C6E5B28E34ADD00A41618 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C6E5A28E34ADD00A41618 /* Realm.swift */; };
 		C85C6E5D28E34AF800A41618 /* UniversalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C6E5C28E34AF800A41618 /* UniversalData.swift */; };
 		C85C6E5F28E34B1000A41618 /* function.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85C6E5E28E34B1000A41618 /* function.swift */; };
-		C85C6E6128E34B2700A41618 /* ALL2022-2-13.txt in Resources */ = {isa = PBXBuildFile; fileRef = C85C6E6028E34B2600A41618 /* ALL2022-2-13.txt */; };
-		C85C6E6328E34B3200A41618 /* ALL2021.txt in Resources */ = {isa = PBXBuildFile; fileRef = C85C6E6228E34B3200A41618 /* ALL2021.txt */; };
-		C85C6E6528E34B3900A41618 /* ALL2020.txt in Resources */ = {isa = PBXBuildFile; fileRef = C85C6E6428E34B3900A41618 /* ALL2020.txt */; };
-		C85C6E6728E34B4400A41618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C85C6E6628E34B4400A41618 /* Assets.xcassets */; };
 		C85C6E6A28E34B7E00A41618 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = C85C6E6928E34B7E00A41618 /* PartialSheet */; };
 		C85C6E6D28E34C7C00A41618 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C85C6E6C28E34C7C00A41618 /* RealmSwift */; };
-		C8F734F42990F7A400634246 /* ALL2023.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8F734F32990F7A400634246 /* ALL2023.txt */; };
+		C8D41DF229BFF921005CC146 /* ALL2020.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8D41DEE29BFF921005CC146 /* ALL2020.txt */; };
+		C8D41DF329BFF921005CC146 /* ALL2021.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8D41DEF29BFF921005CC146 /* ALL2021.txt */; };
+		C8D41DF529BFF921005CC146 /* ALL2022-2-13.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8D41DF129BFF921005CC146 /* ALL2022-2-13.txt */; };
+		C8D41DF729BFF952005CC146 /* ALL2023.txt in Resources */ = {isa = PBXBuildFile; fileRef = C8D41DF629BFF952005CC146 /* ALL2023.txt */; };
+		C8D41DF929BFFAF6005CC146 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8D41DF829BFFAF6005CC146 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,11 +50,11 @@
 		C85C6E5A28E34ADD00A41618 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		C85C6E5C28E34AF800A41618 /* UniversalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalData.swift; sourceTree = "<group>"; };
 		C85C6E5E28E34B1000A41618 /* function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
-		C85C6E6028E34B2600A41618 /* ALL2022-2-13.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ALL2022-2-13.txt"; path = "../../../MyScraping/ALL2022-2-13.txt"; sourceTree = "<group>"; };
-		C85C6E6228E34B3200A41618 /* ALL2021.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALL2021.txt; path = ../../../MyScraping/ALL2021.txt; sourceTree = "<group>"; };
-		C85C6E6428E34B3900A41618 /* ALL2020.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALL2020.txt; path = ../../../MyScraping/ALL2020.txt; sourceTree = "<group>"; };
-		C85C6E6628E34B4400A41618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../クローンテスト３/timetable4icu-git/Assets.xcassets"; sourceTree = "<group>"; };
-		C8F734F32990F7A400634246 /* ALL2023.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ALL2023.txt; path = ../../../MyScraping/ALL2023.txt; sourceTree = "<group>"; };
+		C8D41DEE29BFF921005CC146 /* ALL2020.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ALL2020.txt; sourceTree = "<group>"; };
+		C8D41DEF29BFF921005CC146 /* ALL2021.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ALL2021.txt; sourceTree = "<group>"; };
+		C8D41DF129BFF921005CC146 /* ALL2022-2-13.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ALL2022-2-13.txt"; sourceTree = "<group>"; };
+		C8D41DF629BFF952005CC146 /* ALL2023.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ALL2023.txt; sourceTree = "<group>"; };
+		C8D41DF829BFFAF6005CC146 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +104,11 @@
 				C85C6E5A28E34ADD00A41618 /* Realm.swift */,
 				C85C6E5C28E34AF800A41618 /* UniversalData.swift */,
 				C85C6E5E28E34B1000A41618 /* function.swift */,
-				C8F734F32990F7A400634246 /* ALL2023.txt */,
-				C85C6E6028E34B2600A41618 /* ALL2022-2-13.txt */,
-				C85C6E6228E34B3200A41618 /* ALL2021.txt */,
-				C85C6E6428E34B3900A41618 /* ALL2020.txt */,
-				C85C6E6628E34B4400A41618 /* Assets.xcassets */,
+				C8D41DF629BFF952005CC146 /* ALL2023.txt */,
+				C8D41DF129BFF921005CC146 /* ALL2022-2-13.txt */,
+				C8D41DEE29BFF921005CC146 /* ALL2020.txt */,
+				C8D41DEF29BFF921005CC146 /* ALL2021.txt */,
+				C8D41DF829BFFAF6005CC146 /* Assets.xcassets */,
 				C85C6E3A28E3483E00A41618 /* Preview Content */,
 			);
 			path = timetable.ver5;
@@ -189,11 +189,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C85C6E3C28E3483E00A41618 /* Preview Assets.xcassets in Resources */,
-				C85C6E6128E34B2700A41618 /* ALL2022-2-13.txt in Resources */,
-				C85C6E6528E34B3900A41618 /* ALL2020.txt in Resources */,
-				C85C6E6728E34B4400A41618 /* Assets.xcassets in Resources */,
-				C85C6E6328E34B3200A41618 /* ALL2021.txt in Resources */,
-				C8F734F42990F7A400634246 /* ALL2023.txt in Resources */,
+				C8D41DF529BFF921005CC146 /* ALL2022-2-13.txt in Resources */,
+				C8D41DF229BFF921005CC146 /* ALL2020.txt in Resources */,
+				C8D41DF929BFFAF6005CC146 /* Assets.xcassets in Resources */,
+				C8D41DF329BFF921005CC146 /* ALL2021.txt in Resources */,
+				C8D41DF729BFF952005CC146 /* ALL2023.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

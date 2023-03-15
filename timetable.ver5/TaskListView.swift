@@ -12,7 +12,8 @@ struct TaskListViewVertical: View {
     @ObservedObject var model = ContentViewModel()
     @AppStorage("idsaved") var idSaved = ""
     @State var noTask = false
-    @State var taskPics: [String] = ["nanami", "Teruteru5"]
+//    @State var taskPics: [String] = ["nanami", "Teruteru5"]
+    @State var taskPics: [String] = ["nanami"]
     var body: some View {
         NavigationView {
             ForEach(model.cellModels.filter {$0.id == idSaved}, id: \.id) { oneModel in
