@@ -16,7 +16,7 @@ struct AddTableAndSettingView: View {
     @AppStorage("titlesaved") var titleSaved = ""
     @State var selectionYear = 0
     @State var selectionTerm = 0
-    @AppStorage("yearsaved") var yearSaved = "2023"
+    @AppStorage("yearsaved") var yearSaved = "2024"
     @AppStorage("termsaved") var termSaved = "Spring"
     @FocusState var focusState1: Bool
     @State var isFirst = false
@@ -152,10 +152,11 @@ struct AddTableAndSettingView: View {
                         .padding(.bottom)
                         Spacer()
                         Picker(selection: $selectionYear, label: Text("")) {
-                            Text("2020").tag(3)
-                            Text("2021").tag(2)
-                            Text("2022").tag(1)
-                            Text("2023").tag(0)
+                            Text("2020").tag(4)
+                            Text("2021").tag(3)
+                            Text("2022").tag(2)
+                            Text("2023").tag(1)
+                            Text("2024").tag(0)
                         }
                         .padding(.horizontal)
                         .background {

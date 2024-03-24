@@ -13,7 +13,7 @@ let cellNameForRealm = [["M1", "M2", "M3", "ML", "M4", "M5", "M6", "M7", "M8"], 
 
 let termArray = ["Spring", "Autumn", "Winter"]
 
-let yearArray = ["2023", "2022", "2021", "2020"]
+let yearArray = ["2024", "2023", "2022", "2021", "2020"]
 
 let colorArray = ["white", "red", "green", "baby pink", "light blue", "light green", "blueberry", "lavendar", "lilac", "yellow", "orange", "pink"]
 

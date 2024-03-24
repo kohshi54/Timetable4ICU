@@ -66,6 +66,17 @@ func downloadTextFile(year: String, term: String) -> [(courseTitle: String, inst
  */
 
 func downloadTextFile(year: String, term: String) -> [(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)] {
+
+    guard let fileURL2024 = Bundle.main.url(forResource: "ALL2024", withExtension: "txt")  else {
+        fatalError("ファイルが見つからない")
+    }
+    guard let fileContents2024 = try? String(contentsOf: fileURL2024) else {
+        fatalError("ファイル読み込みエラー")
+    }
+    var courseInfos2024 = fileContents2024.components(separatedBy: "\n")
+    
+    courseInfos2024.remove(at: 0)
+    courseInfos2024.removeLast()
     
     guard let fileURL2023 = Bundle.main.url(forResource: "ALL2023", withExtension: "txt")  else {
         fatalError("ファイルが見つからない")
@@ -113,7 +124,7 @@ func downloadTextFile(year: String, term: String) -> [(courseTitle: String, inst
     
     var courseALL: ([(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)]) = [(courseTitle: "ELAのクラス名", instructor: "教授", schedule: "スケジュール", courseno: "コース番号", room: "部屋番号", mode: "授業形態", color: "white")]
     
-    let courseInfos = courseInfos2023 + courseInfos2022 + courseInfos2021 + courseInfos2020
+    let courseInfos = courseInfos2024 + courseInfos2023 + courseInfos2022 + courseInfos2021 + courseInfos2020
 
     for course in courseInfos {
         let coursesss = course.components(separatedBy: ";")

@@ -22,7 +22,7 @@ struct EditView: View {
     @State var showingAlert = false
     @State var judgeOverlapDay = "you picked the same one"
     @State var overlap = false
-    @AppStorage("yearsaved") var yearSaved = "2023"
+    @AppStorage("yearsaved") var yearSaved = "2024"
     @AppStorage("termsaved") var termSaved = "Spring"
     
     @State var initialSchedule = ""
