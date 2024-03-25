@@ -17,9 +17,10 @@ Find the app on the App Store: [Timetable4ICU on App Store](https://apps.apple.c
 
 Learn more at [Timetable4ICU Website](https://www.timetable4icu.com)
 
-## Previous Repository:
+## Related Repository:
 
-Access the old version's source code [here](https://github.com/kohshi54/timetable.ver5).
+- Access the old version's source code [here](https://github.com/kohshi54/timetable.ver5).
+- Access syllabus scraper code [here](https://github.com/kohshi54/SyllabusScraper).
 
 ## Technologies Utilized:
 
