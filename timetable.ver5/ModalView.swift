@@ -45,15 +45,20 @@ struct ModalView: View {
                 Text("\(scheduleLabel(cellName)) · \(year) \(term)")
                     .font(.headline)
                 Spacer()
-                Button("閉じる") {
+                Button(action: {
                     showingSheet = false
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(Color(.systemGray3))
                 }
+                .accessibilityLabel("Close")
             }.padding()
 
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.secondary)
-                TextField("授業名・番号・教員で検索", text: $searchText)
+                TextField("Search title, number, or instructor", text: $searchText)
                     .focused($focusTextField)
                     .disableAutocorrection(true)
             }
@@ -62,7 +67,7 @@ struct ModalView: View {
             .padding(.horizontal)
 
             HStack {
-                Text("\(filteredClassData.count)件")
+                Text(filteredClassData.count == 1 ? "1 course" : "\(filteredClassData.count) courses")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 Spacer()
@@ -107,12 +112,12 @@ struct ModalView: View {
             Divider()
             if showingManualInput {
                 HStack {
-                    TextField("授業名を入力", text: $manualTitle, onCommit: {
+                    TextField("Course title", text: $manualTitle, onCommit: {
                         decideManualTitle()
                     })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .focused($focusManualInput)
-                    Button("決定") {
+                    Button("Add") {
                         decideManualTitle()
                     }
                     .buttonStyle(.borderedProminent)
@@ -123,7 +128,7 @@ struct ModalView: View {
                     showingManualInput = true
                     focusManualInput = true
                 }) {
-                    Label("リストにない授業を手入力", systemImage: "plus")
+                    Label("Add a course not listed", systemImage: "plus")
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding()
@@ -150,7 +155,7 @@ struct ModalView: View {
         showingSheet = false
     }
 
-    // 登録済みの授業と重なるコマを「月2」の形で返す（タップしたコマの授業自身は除く）
+    // 登録済みの授業と重なるコマを "2/M" の形で返す（タップしたコマの授業自身は除く）
     func conflictingCells(schedule: String) -> [String] {
         var cells: [String] = []
         for oneDay in schedule.components(separatedBy: ",") {
@@ -166,12 +171,12 @@ struct ModalView: View {
         return cells
     }
 
-    // 重複が多いとラベルが長くなるので、3コマ以上は「月2ほか6コマと重複」にまとめる
+    // 重複が多いとラベルが長くなるので、3コマ以上は "Overlaps 2/M and 6 more" にまとめる
     func conflictLabel(_ conflicts: [String]) -> String {
         if conflicts.count <= 2 {
-            return "\(conflicts.joined(separator: ", "))と重複"
+            return "Overlaps \(conflicts.joined(separator: ", "))"
         }
-        return "\(conflicts[0])ほか\(conflicts.count - 1)コマと重複"
+        return "Overlaps \(conflicts[0]) and \(conflicts.count - 1) more"
     }
 
     func chip(_ text: String, foreground: Color, background: Color) -> some View {
