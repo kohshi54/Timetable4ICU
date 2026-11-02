@@ -66,7 +66,18 @@ func downloadTextFile(year: String, term: String) -> [(courseTitle: String, inst
  */
 
 func downloadTextFile(year: String, term: String) -> [(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)] {
-
+    
+    
+    guard let fileURL2025 = Bundle.main.url(forResource: "ALL2025", withExtension: "txt")  else {
+        fatalError("ファイルが見つからない")
+    }
+    guard let fileContents2025 = try? String(contentsOf: fileURL2025) else {
+        fatalError("ファイル読み込みエラー")
+    }
+    var courseInfos2025 = fileContents2025.components(separatedBy: "\n")
+    courseInfos2025.remove(at: 0)
+    courseInfos2025.removeLast()
+    
     guard let fileURL2024 = Bundle.main.url(forResource: "ALL2024", withExtension: "txt")  else {
         fatalError("ファイルが見つからない")
     }
@@ -124,7 +135,7 @@ func downloadTextFile(year: String, term: String) -> [(courseTitle: String, inst
     
     var courseALL: ([(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)]) = [(courseTitle: "ELAのクラス名", instructor: "教授", schedule: "スケジュール", courseno: "コース番号", room: "部屋番号", mode: "授業形態", color: "white")]
     
-    let courseInfos = courseInfos2024 + courseInfos2023 + courseInfos2022 + courseInfos2021 + courseInfos2020
+    let courseInfos = courseInfos2025 + courseInfos2024 + courseInfos2023 + courseInfos2022 + courseInfos2021 + courseInfos2020
 
     for course in courseInfos {
         let coursesss = course.components(separatedBy: ";")
@@ -140,7 +151,6 @@ func downloadTextFile(year: String, term: String) -> [(courseTitle: String, inst
             }
             
             let convertToTuple: (courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String) = (courseTitle: oneCourseList[0]+oneCourseList[6], instructor: oneCourseList[1], schedule: oneCourseList[2], courseno: oneCourseList[3], room: oneCourseList[4], mode: oneCourseList[5], color: "white")
-            
             courseALL.append(convertToTuple)
         }
     }
@@ -291,6 +301,7 @@ func cellSize(hnum: Int, vnum: Int, eighthFlg: Bool, all: CGSize, m: myModel) ->
     let dividerSpace: CGFloat = 0.5
     let lunchHeight = (all.height-0.5) * 0.05
     var lon4: CGFloat = 0
+    var lon5: CGFloat = 0
     switch m.array[hnum][vnum].isEmpty {
     case true:
         cellsize = 1
@@ -371,11 +382,19 @@ func cellSize(hnum: Int, vnum: Int, eighthFlg: Bool, all: CGSize, m: myModel) ->
         if m.arraySchedule[hnum][vnum].contains("*4") {
             lon4 = lunchHeight/2
         }
+    case 5:
+        if m.arraySchedule[hnum][vnum].contains("*5") {
+            lon5 = lunchHeight/2
+        }
+    case 6:
+        if m.arraySchedule[hnum][vnum-1].contains("*5") {
+            lon5 = -lunchHeight/2
+        }
     default: break
         
     }
     
-    return (height * cellsize) + (dividerSpace * (cellsize - 1)) + lon4
+    return (height * cellsize) + (dividerSpace * (cellsize - 1)) + lon4 + lon5
 }
 
 func dividerShowBool(hnum: Int, vnum: Int, m: myModel) -> Bool {
