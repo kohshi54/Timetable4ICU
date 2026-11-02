@@ -171,12 +171,15 @@ struct ModalView: View {
         return titles
     }
 
-    // 授業名は長いので、3つ以上重なるときは "Overlaps ジェンダーと国際関係 (E) and 2 more" にまとめる
+    // 授業名は長いので、末尾の言語表記（（E）など）を外し、3つ以上重なるときは "Overlaps ジェンダーと国際関係 and 2 more" にまとめる
     func conflictLabel(_ conflicts: [String]) -> String {
-        if conflicts.count <= 2 {
-            return "Overlaps \(conflicts.joined(separator: ", "))"
+        let names = conflicts.map { title in
+            title.replacingOccurrences(of: "（[EJO]）$", with: "", options: .regularExpression)
         }
-        return "Overlaps \(conflicts[0]) and \(conflicts.count - 1) more"
+        if names.count <= 2 {
+            return "Overlaps \(names.joined(separator: ", "))"
+        }
+        return "Overlaps \(names[0]) and \(names.count - 1) more"
     }
 
     func chip(_ text: String, foreground: Color, background: Color) -> some View {
