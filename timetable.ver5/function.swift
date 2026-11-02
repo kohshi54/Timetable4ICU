@@ -13,146 +13,34 @@ func convertHVNumToDay(hnum: Int, vnum: Int) -> String {
     return cellNameForRealm[hnum][vnum]
 }
 
-/*
-func downloadTextFile(year: String, term: String) -> [(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)] {
-    
-    guard let fileURL2021 = Bundle.main.url(forResource: "ALL2021", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2021 = try? String(contentsOf: fileURL2021) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2021 = fileContents2021.components(separatedBy: "\n")
-    
-    courseInfos2021.remove(at: 0)
-    courseInfos2021.removeLast()
-    
-    guard let fileURL2020 = Bundle.main.url(forResource: "ALL2020", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2020 = try? String(contentsOf: fileURL2020) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2020 = fileContents2020.components(separatedBy: "\n")
-    
-    courseInfos2021.remove(at: 0)
-    courseInfos2020.removeLast()
-    
-    var courseALL: ([(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)]) = [(courseTitle: "ELAのクラス名", instructor: "教授", schedule: "スケジュール", courseno: "コース番号", room: "部屋番号", mode: "授業形態", color: "white")]
-    
-    let courseInfos = courseInfos2021 + courseInfos2020
-    
-    for course in courseInfos {
-        let coursesss = course.components(separatedBy: ";")
-        if coursesss[7] == year && coursesss[8] == term {
-            var oneCourseList: [String] = []
-            for i in coursesss {
-                oneCourseList.append(i)
-            }
-            if oneCourseList[6] == "NO DATA" {
-                oneCourseList[6] = ""
-            } else if !oneCourseList[6].isEmpty {
-                oneCourseList[6] = "（" + oneCourseList[6] + "）"
-            }
-            
-            let convertToTuple: (courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String) = (courseTitle: oneCourseList[0]+oneCourseList[6], instructor: oneCourseList[1], schedule: oneCourseList[2], courseno: oneCourseList[3], room: oneCourseList[4], mode: oneCourseList[5], color: "white")
-            
-            courseALL.append(convertToTuple)
-        }
-    }
-    
-    return courseALL
-}x
- */
+// 年度ごとの授業データのファイル名（"ALL\(year)" と異なる年度だけ書く）
+let syllabusFileNames = ["2022": "ALL2022-2-13"]
 
 func downloadTextFile(year: String, term: String) -> [(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)] {
     
-    
-    guard let fileURL2025 = Bundle.main.url(forResource: "ALL2025", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2025 = try? String(contentsOf: fileURL2025) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2025 = fileContents2025.components(separatedBy: "\n")
-    courseInfos2025.remove(at: 0)
-    courseInfos2025.removeLast()
-    
-    guard let fileURL2024 = Bundle.main.url(forResource: "ALL2024", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2024 = try? String(contentsOf: fileURL2024) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2024 = fileContents2024.components(separatedBy: "\n")
-    
-    courseInfos2024.remove(at: 0)
-    courseInfos2024.removeLast()
-    
-    guard let fileURL2023 = Bundle.main.url(forResource: "ALL2023", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2023 = try? String(contentsOf: fileURL2023) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2023 = fileContents2023.components(separatedBy: "\n")
-    
-    courseInfos2023.remove(at: 0)
-    courseInfos2023.removeLast()
-    
-    guard let fileURL2022 = Bundle.main.url(forResource: "ALL2022-2-13", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2022 = try? String(contentsOf: fileURL2022) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2022 = fileContents2022.components(separatedBy: "\n")
-    
-    courseInfos2022.remove(at: 0)
-    courseInfos2022.removeLast()
-    
-    guard let fileURL2021 = Bundle.main.url(forResource: "ALL2021", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2021 = try? String(contentsOf: fileURL2021) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2021 = fileContents2021.components(separatedBy: "\n")
-    
-    courseInfos2021.remove(at: 0)
-    courseInfos2021.removeLast()
-    
-    guard let fileURL2020 = Bundle.main.url(forResource: "ALL2020", withExtension: "txt")  else {
-        fatalError("ファイルが見つからない")
-    }
-    guard let fileContents2020 = try? String(contentsOf: fileURL2020) else {
-        fatalError("ファイル読み込みエラー")
-    }
-    var courseInfos2020 = fileContents2020.components(separatedBy: "\n")
-    
-    courseInfos2020.remove(at: 0)
-    courseInfos2020.removeLast()
-    
     var courseALL: ([(courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String)]) = [(courseTitle: "ELAのクラス名", instructor: "教授", schedule: "スケジュール", courseno: "コース番号", room: "部屋番号", mode: "授業形態", color: "white")]
     
-    let courseInfos = courseInfos2025 + courseInfos2024 + courseInfos2023 + courseInfos2022 + courseInfos2021 + courseInfos2020
-
-    for course in courseInfos {
-        let coursesss = course.components(separatedBy: ";")
-        if coursesss[7] == year && coursesss[8] == term {
-            var oneCourseList: [String] = []
-            for i in coursesss {
-                oneCourseList.append(i)
-            }
-            if oneCourseList[6] == "NO DATA" {
-                oneCourseList[6] = ""
-            } else if !oneCourseList[6].isEmpty {
-                oneCourseList[6] = "（" + oneCourseList[6] + "）"
-            }
-            
-            let convertToTuple: (courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String) = (courseTitle: oneCourseList[0]+oneCourseList[6], instructor: oneCourseList[1], schedule: oneCourseList[2], courseno: oneCourseList[3], room: oneCourseList[4], mode: oneCourseList[5], color: "white")
-            courseALL.append(convertToTuple)
+    // 選択中の年度のファイルだけ読む。ファイルが無い・読めない場合も落とさず手入力用の行だけ返す
+    let fileName = syllabusFileNames[year] ?? "ALL\(year)"
+    guard let fileURL = Bundle.main.url(forResource: fileName, withExtension: "txt"),
+          let fileContents = try? String(contentsOf: fileURL) else {
+        return courseALL
+    }
+    
+    // 1行目はヘッダー
+    for course in fileContents.components(separatedBy: "\n").dropFirst() {
+        var oneCourseList = course.components(separatedBy: ";")
+        guard oneCourseList.count >= 9, oneCourseList[7] == year, oneCourseList[8] == term else {
+            continue
         }
+        if oneCourseList[6] == "NO DATA" {
+            oneCourseList[6] = ""
+        } else if !oneCourseList[6].isEmpty {
+            oneCourseList[6] = "（" + oneCourseList[6] + "）"
+        }
+        
+        let convertToTuple: (courseTitle: String, instructor: String, schedule: String, courseno: String, room: String, mode: String, color: String) = (courseTitle: oneCourseList[0]+oneCourseList[6], instructor: oneCourseList[1], schedule: oneCourseList[2], courseno: oneCourseList[3], room: oneCourseList[4], mode: oneCourseList[5], color: "white")
+        courseALL.append(convertToTuple)
     }
     
     return courseALL

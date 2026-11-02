@@ -118,10 +118,14 @@ struct AddTableAndSettingView: View {
                                             addDataToCellFromRealmData(id: self.model.cellModels[index-1].id, m: m)
                                             idSaved = self.model.cellModels[index-1].id
                                             titleSaved = self.model.cellModels[index-1].tableTitle
+                                            yearSaved = self.model.cellModels[index-1].year
+                                            termSaved = self.model.cellModels[index-1].term
                                         } else {
                                             addDataToCellFromRealmData(id: self.model.cellModels[index+1].id, m: m)
                                             idSaved = self.model.cellModels[index+1].id
                                             titleSaved = self.model.cellModels[index+1].tableTitle
+                                            yearSaved = self.model.cellModels[index+1].year
+                                            termSaved = self.model.cellModels[index+1].term
                                         }
                                     }
                                 }
