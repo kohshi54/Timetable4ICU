@@ -144,7 +144,8 @@ struct AddTableAndSettingView: View {
                             Text("Autumn").tag(1)
                             Text("Spring").tag(0)
                         }
-                        .padding(.horizontal)
+                        .fixedSize() // 幅が足りないと "Sprin / g" のように折り返すため
+                        .padding(.horizontal, 8)
                         
                         .background {
                             RoundedRectangle(cornerRadius: 7).stroke(Color.blue, lineWidth: 0.5)
@@ -159,7 +160,8 @@ struct AddTableAndSettingView: View {
                             Text("2024").tag(1)
                             Text("2025").tag(0)
                         }
-                        .padding(.horizontal)
+                        .fixedSize()
+                        .padding(.horizontal, 8)
                         .background {
                             RoundedRectangle(cornerRadius: 7).stroke(Color.blue, lineWidth: 0.5)
                         }
@@ -177,7 +179,7 @@ struct AddTableAndSettingView: View {
                             focusState1 = false
                             isFirst = false
                         }) {
-                            Text("Create")
+                            Text("Create").fixedSize()
                         }.buttonStyle(.borderedProminent)
                             .controlSize(.large)
                             .padding(.trailing)
