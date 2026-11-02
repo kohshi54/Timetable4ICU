@@ -77,7 +77,7 @@ struct ModalView: View {
 
             List {
                 ForEach(Array(filteredClassData.enumerated()), id: \.offset) { _, oneClass in
-                    let conflicts = conflictingCells(schedule: oneClass.schedule)
+                    let conflicts = conflictingCourses(schedule: oneClass.schedule)
                     Button(action: {
                         select(oneClass)
                     }) {
@@ -155,23 +155,23 @@ struct ModalView: View {
         showingSheet = false
     }
 
-    // 登録済みの授業と重なるコマを "2/M" の形で返す（タップしたコマの授業自身は除く）
-    func conflictingCells(schedule: String) -> [String] {
-        var cells: [String] = []
+    // 登録済みの授業のうち時間が重なるものの名前を、重複なしで時限順に返す（タップしたコマの授業自身は除く）
+    func conflictingCourses(schedule: String) -> [String] {
+        var titles: [String] = []
         for oneDay in schedule.components(separatedBy: ",") {
             let shaped = shapeScheduleString(scheduleHnumVnum: oneDay)
             guard shaped.contains("/") else { continue }
             let (vnum, hnum) = convertDayToHVNum(Day: shaped)
             guard (0...5).contains(hnum), (0...8).contains(vnum) else { continue }
             let registered = m.array[hnum][vnum]
-            if !registered.isEmpty && registered != currentTitle {
-                cells.append(scheduleLabel(shaped))
+            if !registered.isEmpty && registered != currentTitle && !titles.contains(registered) {
+                titles.append(registered)
             }
         }
-        return cells
+        return titles
     }
 
-    // 重複が多いとラベルが長くなるので、3コマ以上は "Overlaps 2/M and 6 more" にまとめる
+    // 授業名は長いので、3つ以上重なるときは "Overlaps ジェンダーと国際関係 (E) and 2 more" にまとめる
     func conflictLabel(_ conflicts: [String]) -> String {
         if conflicts.count <= 2 {
             return "Overlaps \(conflicts.joined(separator: ", "))"
@@ -182,6 +182,7 @@ struct ModalView: View {
     func chip(_ text: String, foreground: Color, background: Color) -> some View {
         Text(text)
             .font(.caption)
+            .fixedSize(horizontal: false, vertical: true)
             .foregroundColor(foreground)
             .padding(.horizontal, 6)
             .padding(.vertical, 2)
