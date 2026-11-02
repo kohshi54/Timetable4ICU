@@ -20,7 +20,7 @@ struct SchedulePartialView: View {
     @State var selectionDay = "M"
     @State var selectionTime = "1"
     let day = ["SA", "F", "TH", "W", "TU", "M"]
-    let time = ["8", "7", "6", "5", "*4", "4", "3", "2", "1"]
+    let time = ["8", "7", "6", "*5", "5", "*4", "4", "3", "2", "1"]
     
     @State var scheduleConflict = false
     @State var scheduleMissing = false

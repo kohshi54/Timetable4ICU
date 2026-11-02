@@ -17,7 +17,14 @@ struct TimeTableView: View {
     let timeWitheighth = ["1", "2", "3", "L", "4", "5", "6", "7", "8"]
     let time = ["1", "2", "3", "L", "4", "5", "6", "7"]
     let timeDetailWitheighth = ["1": ("8:45", "10:00"), "2": ("10:10", "11:25"), "3": ("11:35", "12:50"), "4": ("14:00", "15:15"), "5": ("15:25", "16:40"), "6": ("16:50", "18:05"), "7": ("18:15", "19:30"), "8": ("19:40", "20:55")]
-    
+    let timeDetailWitheighthBefore2025 = ["1": ("8:50", "10:00"), "2": ("10:10", "11:20"), "3": ("11:30", "12:40"), "4": ("13:50", "15:00"), "5": ("15:10", "16:20"), "6": ("16:30", "17:40"), "7": ("17:50", "19:00"), "8": ("19:10", "20:20")]
+
+    // 2025年度から授業時間が変わったため、表示中の時間割の年度で時刻を切り替える
+    var timeDetail: [String: (String, String)] {
+        let year = try? Realm().objects(cellModel.self).filter("id = %@", idSaved).first?.year
+        return (Int(year ?? "") ?? 2025) >= 2025 ? timeDetailWitheighth : timeDetailWitheighthBefore2025
+    }
+
     @State var SatFlg = false
     @State var eighthFlg = false
     @State var timeDetailFlg = false
@@ -59,14 +66,14 @@ struct TimeTableView: View {
                                         if timeNum != time[3] {
                                             VStack {
                                                 if timeDetailFlg {
-                                                    Text("\(timeDetailWitheighth[timeNum]!.0)")
+                                                    Text("\(timeDetail[timeNum]!.0)")
                                                         .font(.system(size: 10, weight: .thin, design: .default)).padding(.top, 2)
                                                 }
                                                 Spacer()
                                                 Text("\(timeNum)")
                                                 Spacer()
                                                 if timeDetailFlg {
-                                                    Text("\(timeDetailWitheighth[timeNum]!.1)")
+                                                    Text("\(timeDetail[timeNum]!.1)")
                                                         .font(.system(size: 10, weight: .thin, design: .default)).padding(.bottom, 2)
                                                 }
                                             }.frame(width: geometryTimeArea.size.width-0.5, height: eighthFlg ? (geometryTimeArea.size.height * 0.95)/8 - 0.5 : (geometryTimeArea.size.height * 0.95)/7 - 0.5)

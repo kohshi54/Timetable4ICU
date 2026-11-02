@@ -373,27 +373,24 @@ func cellSize(hnum: Int, vnum: Int, eighthFlg: Bool, all: CGSize, m: myModel) ->
         }
     }
     
-    switch vnum {
-    case 3:
+    // *4・*5 の伸び縮みは、連続授業でまとめて描画するセルにも反映する（まとめられて非表示のセルには付けない）
+    if vnum == 3 {
         if m.arraySchedule[hnum][vnum+1].contains("*4") {
             lon4 = -lunchHeight/2
         }
-    case 4:
-        if m.arraySchedule[hnum][vnum].contains("*4") {
+    } else if cellsize > 0 {
+        let coveredVnums = vnum..<(vnum + Int(cellsize))
+        if coveredVnums.contains(4) && m.arraySchedule[hnum][4].contains("*4") {
             lon4 = lunchHeight/2
         }
-    case 5:
-        if m.arraySchedule[hnum][vnum].contains("*5") {
-            lon5 = lunchHeight/2
+        if coveredVnums.contains(5) && m.arraySchedule[hnum][5].contains("*5") {
+            lon5 += lunchHeight/2
         }
-    case 6:
-        if m.arraySchedule[hnum][vnum-1].contains("*5") {
-            lon5 = -lunchHeight/2
+        if coveredVnums.contains(6) && m.arraySchedule[hnum][5].contains("*5") {
+            lon5 -= lunchHeight/2
         }
-    default: break
-        
     }
-    
+
     return (height * cellsize) + (dividerSpace * (cellsize - 1)) + lon4 + lon5
 }
 
