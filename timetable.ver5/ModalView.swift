@@ -169,7 +169,7 @@ struct ModalView: View {
     // 重複が多いとラベルが長くなるので、3コマ以上は「月2ほか6コマと重複」にまとめる
     func conflictLabel(_ conflicts: [String]) -> String {
         if conflicts.count <= 2 {
-            return "\(conflicts.joined(separator: "・"))と重複"
+            return "\(conflicts.joined(separator: ", "))と重複"
         }
         return "\(conflicts[0])ほか\(conflicts.count - 1)コマと重複"
     }
@@ -184,18 +184,7 @@ struct ModalView: View {
     }
 }
 
-// "3/TU,*4/TH,(5/SA)" を "火3 · 木*4 · (土5)" のように読みやすくする
+// シラバスと同じ "3/TU" の表記のまま、"3/TU,2/TH" を "3/TU, 2/TH" と区切りを空けて読みやすくする
 func scheduleLabel(_ schedule: String) -> String {
-    let dayNames = ["M": "月", "TU": "火", "W": "水", "TH": "木", "F": "金", "SA": "土"]
-    let labels: [String] = schedule.components(separatedBy: ",").map { raw in
-        let optional = raw.contains("(") || raw.contains(")")
-        let cell = raw.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
-        let parts = cell.components(separatedBy: "/")
-        guard parts.count == 2, let day = dayNames[parts[1]] else {
-            return raw
-        }
-        let label = day + parts[0]
-        return optional ? "(\(label))" : label
-    }
-    return labels.joined(separator: " · ")
+    return schedule.components(separatedBy: ",").joined(separator: ", ")
 }
