@@ -1,0 +1,6 @@
+.DS_Store
+xcuserdata/
+
+# 授業データはログインが必要なシラバスから取得したもののため、リポジトリに含めない
+timetable.ver5/ALL*.txt
+timetable.ver5/ALL*.csv

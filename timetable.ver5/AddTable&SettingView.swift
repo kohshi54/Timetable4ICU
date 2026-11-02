@@ -16,7 +16,7 @@ struct AddTableAndSettingView: View {
     @AppStorage("titlesaved") var titleSaved = ""
     @State var selectionYear = 0
     @State var selectionTerm = 0
-    @AppStorage("yearsaved") var yearSaved = "2024"
+    @AppStorage("yearsaved") var yearSaved = yearArray[0]
     @AppStorage("termsaved") var termSaved = "Spring"
     @FocusState var focusState1: Bool
     @State var isFirst = false
@@ -118,10 +118,14 @@ struct AddTableAndSettingView: View {
                                             addDataToCellFromRealmData(id: self.model.cellModels[index-1].id, m: m)
                                             idSaved = self.model.cellModels[index-1].id
                                             titleSaved = self.model.cellModels[index-1].tableTitle
+                                            yearSaved = self.model.cellModels[index-1].year
+                                            termSaved = self.model.cellModels[index-1].term
                                         } else {
                                             addDataToCellFromRealmData(id: self.model.cellModels[index+1].id, m: m)
                                             idSaved = self.model.cellModels[index+1].id
                                             titleSaved = self.model.cellModels[index+1].tableTitle
+                                            yearSaved = self.model.cellModels[index+1].year
+                                            termSaved = self.model.cellModels[index+1].term
                                         }
                                     }
                                 }
@@ -144,7 +148,8 @@ struct AddTableAndSettingView: View {
                             Text("Autumn").tag(1)
                             Text("Spring").tag(0)
                         }
-                        .padding(.horizontal)
+                        .fixedSize() // 幅が足りないと "Sprin / g" のように折り返すため
+                        .padding(.horizontal, 8)
                         
                         .background {
                             RoundedRectangle(cornerRadius: 7).stroke(Color.blue, lineWidth: 0.5)
@@ -152,13 +157,13 @@ struct AddTableAndSettingView: View {
                         .padding(.bottom)
                         Spacer()
                         Picker(selection: $selectionYear, label: Text("")) {
-                            Text("2020").tag(4)
-                            Text("2021").tag(3)
-                            Text("2022").tag(2)
-                            Text("2023").tag(1)
-                            Text("2024").tag(0)
+                            // tag は yearArray の添字。メニューは古い年度から並べる
+                            ForEach(yearArray.indices.reversed(), id: \.self) { index in
+                                Text(yearArray[index]).tag(index)
+                            }
                         }
-                        .padding(.horizontal)
+                        .fixedSize()
+                        .padding(.horizontal, 8)
                         .background {
                             RoundedRectangle(cornerRadius: 7).stroke(Color.blue, lineWidth: 0.5)
                         }
@@ -176,7 +181,7 @@ struct AddTableAndSettingView: View {
                             focusState1 = false
                             isFirst = false
                         }) {
-                            Text("Create")
+                            Text("Create").fixedSize()
                         }.buttonStyle(.borderedProminent)
                             .controlSize(.large)
                             .padding(.trailing)
