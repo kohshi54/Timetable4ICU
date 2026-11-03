@@ -100,9 +100,9 @@ struct AddTableAndSettingView: View {
                                             .foregroundColor(Color.gray)
                                     }
 
-                                    Text(cellModel.tableTitle).bold().foregroundColor(idSaved == cellModel.id ? Color.blue : Color.black)
+                                    Text(cellModel.tableTitle).bold().foregroundColor(idSaved == cellModel.id ? Color.blue : Color.primary)
                                     Spacer()
-                                    Text("【\(cellModel.term), \(cellModel.year)】").foregroundColor(idSaved == cellModel.id ? Color.blue : Color.black).padding(.horizontal)
+                                    Text("【\(cellModel.term), \(cellModel.year)】").foregroundColor(idSaved == cellModel.id ? Color.blue : Color.primary).padding(.horizontal)
                                     
                                 }
                             }

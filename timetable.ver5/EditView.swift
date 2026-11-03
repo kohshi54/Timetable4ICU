@@ -150,7 +150,7 @@ struct EditView: View {
                                     .fill(Color("\(oneColor)"))
                                     .frame(width: 50, height: 50)
                                     .overlay(Circle()
-                                                .stroke(Color.black, lineWidth: oneColor == tmpClassInfo.color ? 2 : 0.5))
+                                                .stroke(Color.primary, lineWidth: oneColor == tmpClassInfo.color ? 2 : 0.5))
                                     .onTapGesture(perform: {
                                         withAnimation(Animation.linear(duration: 0.1)) {
                                             tmpClassInfo.color = oneColor
@@ -166,6 +166,9 @@ struct EditView: View {
             Button(action: {
                 
                 presentationMode.wrappedValue.dismiss()
+                
+                // 課題は授業名で授業と結び付いているため、授業名を変えたら課題の授業名も合わせて変える
+                renameTasks(from: m.array[hnum][vnum], to: tmpClassInfo.courseTitle, id: idSaved)
                 
                 let scheduleHnumVnumArray: [String] = tmpClassInfo.schedule.components(separatedBy: ",")
                 

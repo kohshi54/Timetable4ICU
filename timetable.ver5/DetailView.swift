@@ -206,9 +206,10 @@ struct DetailView: View {
                         .onDelete { indexSet in
                             let realm = try? Realm()
                             if let index = indexSet.first, let myModel = realm?.objects(cellModel.self).filter("id = %@", idSaved).first {
-                                let INDEX = myModel.tasks.index(of: myModel.tasks.filter("courseTitle = %@", m.array[hnum][vnum])[index])
-                                try? realm?.write {
-                                    myModel.tasks.remove(at: INDEX!)
+                                if let INDEX = myModel.tasks.index(of: myModel.tasks.filter("courseTitle = %@", m.array[hnum][vnum])[index]) {
+                                    try? realm?.write {
+                                        myModel.tasks.remove(at: INDEX)
+                                    }
                                 }
                             }
                         }
