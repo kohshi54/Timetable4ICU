@@ -133,6 +133,7 @@ struct TimeTableView: View {
                 }
             }
             .navigationBarTitle(titleSaved, displayMode: .inline)
+            .darkNavigationBar()
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(titleSaved)

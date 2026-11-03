@@ -284,6 +284,7 @@ struct EditView: View {
             })
         }
         .navigationTitle("Edit View in \(cellNameWithSat[hnum][vnum])")
+        .darkNavigationBar()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Edit View in \(cellNameWithSat[hnum][vnum])")

@@ -45,6 +45,7 @@ struct AddTableAndSettingView: View {
                     Text("Sat")
                     Toggle("", isOn: $SatFlg)
                         .labelsHidden()
+                        .tint(.green)
                         .onChange(of: SatFlg, perform: { _ in
                             satflgSaved = SatFlg
                         })
@@ -53,6 +54,7 @@ struct AddTableAndSettingView: View {
                     Text("8限")
                     Toggle("", isOn: $eighthFlg)
                         .labelsHidden()
+                        .tint(.green)
                         .onChange(of: eighthFlg, perform: { _ in
                             eigthflgSaved = eighthFlg
                         })
@@ -61,6 +63,7 @@ struct AddTableAndSettingView: View {
                     Text("時間表示")
                     Toggle("", isOn: $timeDetailFlg)
                         .labelsHidden()
+                        .tint(.green)
                         .onChange(of: timeDetailFlg, perform: { _ in
                             timedetailflgSaved = timeDetailFlg
                         })
@@ -209,6 +212,7 @@ struct AddTableAndSettingView: View {
             }
         }
         .navigationTitle("Settings View")
+        .darkNavigationBar()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Settings View")

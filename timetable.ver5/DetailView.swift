@@ -105,6 +105,7 @@ struct DetailView: View {
                     }) {
                         Text("Delete").frame(width: 60)
                     }.buttonStyle(.borderedProminent)
+                        .tint(.red)
                         .controlSize(.large)
                         .confirmationDialog("All class data will be deleted.\nAre you sure?", isPresented: $isShowDialog, titleVisibility: .visible) {
                             Button("OK", role: .destructive, action: {
@@ -244,6 +245,7 @@ struct DetailView: View {
             
         }
         .navigationTitle("Detail View in \(cellNameWithSat[hnum][vnum])")
+        .darkNavigationBar()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Detail View in \(cellNameWithSat[hnum][vnum])")

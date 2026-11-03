@@ -297,6 +297,7 @@ struct AddClassView: View {
             })
         }
         .navigationTitle("Add View in \(cellNameWithSat[hnum][vnum])")
+        .darkNavigationBar()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Add View in \(cellNameWithSat[hnum][vnum])")

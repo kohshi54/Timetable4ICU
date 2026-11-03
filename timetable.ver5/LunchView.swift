@@ -161,6 +161,7 @@ struct LunchView: View {
             
         }
         .navigationTitle("Lunch View in \(cellNameWithSat[hnum][vnum])")
+        .darkNavigationBar()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Lunch View in \(cellNameWithSat[hnum][vnum])")

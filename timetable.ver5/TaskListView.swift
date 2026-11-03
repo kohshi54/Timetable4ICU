@@ -68,6 +68,7 @@ struct TaskListViewVertical: View {
                 }
             }
             .navigationBarTitle("Task List", displayMode: .inline)
+            .darkNavigationBar()
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Task List")
