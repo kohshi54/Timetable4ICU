@@ -97,6 +97,7 @@ struct SchedulePartialView: View {
                 }) {
                     Text("Delete")
                 }.buttonStyle(.borderedProminent)
+                    .tint(.red)
                     .controlSize(.small)
                     .alert(isPresented: $scheduleMissing) {
                         Alert(title: Text("does not exist"))

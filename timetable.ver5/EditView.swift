@@ -56,7 +56,7 @@ struct EditView: View {
                 self.showingSheet.toggle()
             }
             .sheet(isPresented: $showingSheet) {
-                ModalView(showingSheet: $showingSheet, classData: filterCourses(cellName: cellNameWithSat[hnum][vnum], classData: downloadTextFile(year: yearSaved, term: termSaved)), tmpClassInfo: $tmpClassInfo, showingAlert: $showingAlert, judgeOverlapDay: $judgeOverlapDay)
+                ModalView(showingSheet: $showingSheet, classData: filterCourses(cellName: cellNameWithSat[hnum][vnum], classData: downloadTextFile(year: yearSaved, term: termSaved)), tmpClassInfo: $tmpClassInfo, showingAlert: $showingAlert, judgeOverlapDay: $judgeOverlapDay, cellName: cellNameWithSat[hnum][vnum], year: yearSaved, term: termSaved, currentTitle: m.array[hnum][vnum])
             }
             Group {
                 TextField("Instructor", text: $tmpClassInfo.instructor).textFieldStyle(RoundedBorderTextFieldStyle())
@@ -284,6 +284,7 @@ struct EditView: View {
             })
         }
         .navigationTitle("Edit View in \(cellNameWithSat[hnum][vnum])")
+        .darkNavigationBar()
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Edit View in \(cellNameWithSat[hnum][vnum])")
