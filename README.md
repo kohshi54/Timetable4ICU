@@ -1,99 +1,68 @@
 # Timetable4ICU
 
-Timetable4ICU is a timetable management application tailored specifically for the International Christian University (ICU) community. It's designed with intuitive features that simplify how students plan their academic schedules and keep track of assignments.
+Timetable4ICU is a timetable app for students at International Christian University (ICU). Pick your courses from the ICU syllabus, see your week at a glance, and keep track of assignments for each course.
 
-## Key Features:
+<p align="center">
+  <img src="docs/register.gif" alt="Adding a course from the syllabus" width="300"/>
+</p>
 
-- **Syllabus Integration:** Automatically populates your timetable with courses from the ICU syllabus.
-- **Smart Class Registration:** Add classes with a single tap and visualize them with connecting frames for consecutive periods or distinct colors for easy identification.
-- **Assignment Tracking:** Conveniently record homework for each course within the app.
-- **Widespread Use:** Trusted by approximately 70% of ICU students, amounting to about 2,600 users.
+[Download on the App Store](https://apps.apple.com/jp/app/timetable4icu/id1605478409) · [Website](https://www.timetable4icu.com)
 
-## Download:
+## Features
 
-Find the app on the App Store: [Timetable4ICU on App Store](https://apps.apple.com/jp/app/timetable4icu/id1605478409)
+- **Syllabus built in:** Tap an empty period to see every course offered in it, then search by title, course number, or instructor. Syllabus data covers academic years 2020 through 2026.
+- **Overlap warnings:** Courses that clash with ones already in your timetable are labeled with the names of those courses before you add them.
+- **Multi-period courses:** Picking a course fills every period it meets in, and consecutive periods are joined into one block. Each course can have its own color.
+- **Assignments:** Add tasks from a course's detail screen and see tasks from all courses in the Task tab.
+- **Your layout:** Show Saturday, 8th period, and class start and end times as you like. Times follow the class schedule of the timetable's year (the 2025 schedule change is handled).
+- **Multiple timetables:** Keep one timetable per term and switch between them in Settings.
 
-## Website:
+Trusted by approximately 70% of ICU students, about 2,600 users.
 
-Learn more at [Timetable4ICU Website](https://www.timetable4icu.com)
-
-## Related Repository:
-
-- Access the old version's source code [here](https://github.com/kohshi54/timetable.ver5).
-- Access syllabus scraper code [here](https://github.com/kohshi54/SyllabusScraper).
-
-## Technologies Utilized:
-
-- Swift
-- SwiftUI
-- Python
-- Realm Database
-
-## Screenshots and Descriptions:
+## Screens
 
 <table>
   <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/56443d30-d99e-4f71-a387-007af51b3eeb.png" alt="Timetable Main Screen" style="width:100%;max-width:300px;"/>
+    <td align="center" width="33%">
+      <img src="docs/register.gif" alt="Adding a course" width="240"/><br/>
+      <b>Add a course</b><br/>
+      Choose from the syllabus for that period, with overlaps shown up front.
     </td>
-    <td style="padding-left:20px;">
-      <h2>Timetable Main Screen</h2>
-      <p>Displays your weekly class schedule with a focus on clarity, especially for classes starting at noon.</p>
+    <td align="center" width="33%">
+      <img src="docs/tasks.gif" alt="Adding a task" width="240"/><br/>
+      <b>Track assignments</b><br/>
+      Add tasks to a course and review them all in the Task tab.
     </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/ccfb48c6-166b-4fcd-8610-92c999bb8cb9" alt="Timetable Main Screen" style="width:100%;max-width:300px;"/>
-    </td>
-    <td style="padding-left:20px;">
-      <h2>Timetable Detail Screen</h2>
-      <p>View course details and assignments in one place, set against a minimalist gray backdrop for a distraction-free environment.</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/e77e5f68-f316-4cd0-ad42-c2536c98b2d0" alt="Timetable Main Screen" style="width:100%;max-width:300px;"/>
-    </td>
-    <td style="padding-left:20px;">
-      <h2>Timetable Registration/Change Screen</h2>
-      <p>Easily add or modify your classes with an interactive list and safeguard against schedule conflicts with an overlap detection system.</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/d4083f79-67b0-4199-ada8-48ecd37aaa39" alt="Screeen" style="width:100%;max-width:300px;"/>
-    </td>
-    <td style="padding-left:20px;">
-      <h2>Timetable Registration/Change Screen</h2>
-      <p>Easily add or modify your classes with an interactive list and safeguard against schedule conflicts with an overlap detection system.</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/a9008586-0ec3-4f70-9c3c-7dda4716dd2c" alt="Screeen" style="width:100%;max-width:300px;"/>
-    </td>
-    <td style="padding-left:20px;">
-      <h2>Setup Screen</h2>
-      <p>Customize your timetable per semester with options to include different periods and session times, as well as Saturday classes.</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/ce593133-dac9-4c00-b337-db7883abe726" alt="Screeen" style="width:100%;max-width:300px;"/>
-    </td>
-    <td style="padding-left:20px;">
-      <h2>Task Management Screen</h2>
-      <p>A comprehensive list of assignments across all registered classes, with options to mark them as completed or delete them.</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/kohshi54/Timetable4ICU/assets/80312261/8bf1a145-937c-44d4-99fb-599a9f59a03b" alt="Screeen" style="width:100%;max-width:300px;"/>
-    </td>
-    <td style="padding-left:20px;">
-      <h2>Lunch Break Screen</h2>
-      <p>A dedicated space to schedule and update any lunchtime plans, with a streamlined saving process.</p>
+    <td align="center" width="33%">
+      <img src="docs/settings.gif" alt="Changing the layout" width="240"/><br/>
+      <b>Adjust the layout</b><br/>
+      Turn on Saturday and 8th period when you need them.
     </td>
   </tr>
 </table>
 
+Instructor names in these recordings are placeholders.
+
+## Requirements
+
+- iOS 16.0 or later
+- Xcode (recent version) to build
+
+## Development
+
+1. Open `timetable.ver5.xcodeproj` in Xcode. Swift Package Manager fetches the dependencies ([Realm](https://github.com/realm/realm-swift) and [PartialSheet](https://github.com/AndreaMiotto/PartialSheet)).
+2. Generate the syllabus files with [SyllabusScraper](https://github.com/kohshi54/SyllabusScraper) and put them in `timetable.ver5/` as `ALL<year>.txt` (for example `ALL2026.txt`).
+   - The syllabus requires an ICU login, so these files are **not** committed to this repository (`.gitignore` excludes them).
+   - Without them the app still builds and runs, but the course list only shows a placeholder entry.
+3. Build and run on a simulator or device.
+
+## Built with
+
+- Swift, SwiftUI
+- Realm Database
+- Python (syllabus scraper)
+
+## Related repositories
+
+- [SyllabusScraper](https://github.com/kohshi54/SyllabusScraper): collects course data from the ICU syllabus
+- [timetable.ver5](https://github.com/kohshi54/timetable.ver5): source code of an earlier version
