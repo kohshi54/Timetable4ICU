@@ -66,14 +66,14 @@ struct TimeTableView: View {
                                         if timeNum != time[3] {
                                             VStack {
                                                 if timeDetailFlg {
-                                                    Text("\(timeDetail[timeNum]!.0)")
+                                                    Text("\(timeDetail[timeNum]?.0 ?? "")")
                                                         .font(.system(size: 10, weight: .thin, design: .default)).padding(.top, 2)
                                                 }
                                                 Spacer()
                                                 Text("\(timeNum)")
                                                 Spacer()
                                                 if timeDetailFlg {
-                                                    Text("\(timeDetail[timeNum]!.1)")
+                                                    Text("\(timeDetail[timeNum]?.1 ?? "")")
                                                         .font(.system(size: 10, weight: .thin, design: .default)).padding(.bottom, 2)
                                                 }
                                             }.frame(width: geometryTimeArea.size.width-0.5, height: eighthFlg ? (geometryTimeArea.size.height * 0.95)/8 - 0.5 : (geometryTimeArea.size.height * 0.95)/7 - 0.5)
@@ -109,7 +109,7 @@ struct TimeTableView: View {
                                                     NavigationLink(destination: LunchView(hnum: hnum, vnum: vnum)) {
                                                         Text("\(m.array[hnum][vnum])").frame(width: SatFlg ? (geometryScheduleArea.size.width/6)-0.5 : (geometryScheduleArea.size.width/5)-0.5,
                                                                                              height: cellSize(hnum: hnum, vnum: vnum, eighthFlg: eighthFlg, all: geometryScheduleArea.size, m: m))
-                                                            .foregroundColor(Color.black)
+                                                            .foregroundColor(Color.primary)
                                                             .font(.system(size: 13, weight: .regular, design: .default))
                                                     }.background(lunchColor(hnum: hnum, m: m))
                                                 }

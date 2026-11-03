@@ -383,3 +383,12 @@ func lunchColor(hnum: Int, m: myModel) -> Color {
     }
     return color
 }
+
+func renameTasks(from oldTitle: String, to newTitle: String, id: String) {
+    guard !oldTitle.isEmpty, oldTitle != newTitle,
+          let realm = try? Realm(),
+          let table = realm.objects(cellModel.self).filter("id = %@", id).first else { return }
+    try? realm.write {
+        table.tasks.filter("courseTitle = %@", oldTitle).forEach { $0.courseTitle = newTitle }
+    }
+}

@@ -163,7 +163,7 @@ struct AddClassView: View {
                                     .fill(Color("\(oneColor)"))
                                     .frame(width: 50, height: 50)
                                     .overlay(Circle()
-                                                .stroke(Color.black, lineWidth: oneColor == tmpClassInfo.color ? 2 : 0.5))
+                                                .stroke(Color.primary, lineWidth: oneColor == tmpClassInfo.color ? 2 : 0.5))
                                     .onTapGesture(perform: {
                                         withAnimation(Animation.linear(duration: 0.1)) {
                                             tmpClassInfo.color = oneColor

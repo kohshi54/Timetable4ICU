@@ -101,7 +101,7 @@ struct LunchView: View {
                                     .fill(Color("\(oneColor)"))
                                     .frame(width: 50, height: 50)
                                     .overlay(Circle()
-                                                .stroke(Color.black, lineWidth: oneColor == lunchColor ? 2 : 0.5))
+                                                .stroke(Color.primary, lineWidth: oneColor == lunchColor ? 2 : 0.5))
                                     .onTapGesture(perform: {
                                         withAnimation(Animation.linear(duration: 0.1)) {
                                             if lunchColor == oneColor {
